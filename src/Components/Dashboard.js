@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Dashboard extends Component {
-  render() {
-    return (
-      <div>
-        this.props.user
-      </div>
-    )
-  }
+const Dashboard = props => {
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      <h1>Status: {this.props.loggedInStatus}</h1>
+    </div>
+  )
 }
+
+export default Dashboard;

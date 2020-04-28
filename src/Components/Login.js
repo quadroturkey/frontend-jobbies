@@ -7,7 +7,7 @@ class login extends Component {
       username: "",
       password: "",
       loggedIn: false,
-      currentUser: ""
+      // currentUser: ""
     }
   }
 
@@ -44,7 +44,8 @@ class login extends Component {
         // Once it is recieved the token is decrypted and access to data is granted
         localStorage.setItem("token", response.jwt)
         console.log(response)
-        this.setState({ currentUser: response.user.username, loggedIn: true })
+        // this.setState({ currentUser: response.user.username, loggedIn: true })
+        this.props.handleAuth(response)
       })
   }
 
@@ -55,7 +56,6 @@ class login extends Component {
       return <h3>Please Log In</h3>
     }
   }
-
 
   render() {
     return (

@@ -51,6 +51,7 @@ class signup extends Component {
         // We are reciving a status of "created" if the user is valid and saved to the database
         if (response.status === "created") {
           this.setState({ created: true })
+          this.props.handleLogin(response)
           // call this.props. main level function
         }
       })
