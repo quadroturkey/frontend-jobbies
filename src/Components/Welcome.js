@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
-// import { Link } from "react-router-dom";
-
 import Login from './Login';
 // import Signup from './Signup'
 
 export default class Welcome extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     user: {}
-  //   }
-  // }
+  constructor(props) {
+    super(props);
 
-  handleAuth = data => {
+    this.handleAuth = this.handleAuth.bind(this);
+  }
+
+
+  handleAuth(data) {
     this.props.history.push("/dashboard")
     this.props.handleLogin(data)
   }
@@ -27,7 +25,7 @@ export default class Welcome extends Component {
         <Signup /> */}
 
         <h2>Login</h2>
-        <Login handleAuth={this.props.handleAuth} />
+        <Login handleAuth={this.handleAuth} />
       </div>
     );
   }

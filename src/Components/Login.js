@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 class login extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       username: "",
       password: "",
       loggedIn: false,
-      // currentUser: ""
+      currentUser: ""
     }
   }
 
@@ -44,7 +44,8 @@ class login extends Component {
         // Once it is recieved the token is decrypted and access to data is granted
         localStorage.setItem("token", response.jwt)
         console.log(response)
-        // this.setState({ currentUser: response.user.username, loggedIn: true })
+        this.setState({ currentUser: response.user.username, loggedIn: true })
+        // console.log(this.props.handleAuth)
         this.props.handleAuth(response)
       })
   }
