@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class login extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       username: "",
       password: "",
@@ -45,6 +45,8 @@ class login extends Component {
         localStorage.setItem("token", response.jwt)
         console.log(response)
         this.setState({ currentUser: response.user.username, loggedIn: true })
+        // console.log(this.props.handleAuth)
+        this.props.handleAuth(response)
       })
   }
 
@@ -55,7 +57,6 @@ class login extends Component {
       return <h3>Please Log In</h3>
     }
   }
-
 
   render() {
     return (

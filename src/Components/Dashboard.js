@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 
 export default class Dashboard extends Component {
-  render() {
+  render(props) {
     return (
       <div>
-        this.props.user
+        <h1>Status: {this.props.loggedInStatus}</h1>
+        <h1>Username: {this.props.user.username}</h1>
       </div>
     )
   }

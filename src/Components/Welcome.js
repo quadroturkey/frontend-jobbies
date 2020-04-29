@@ -1,20 +1,32 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import Login from './Login';
+// import Signup from './Signup'
 
-class Welcome extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Welcome to my Job Application Tracker</h1><br/>
+export default class Welcome extends Component {
+  constructor(props) {
+    super(props);
 
-                <Link to="/login">Login</Link><br/><br/>
-                <Link to="/signup">SignUp</Link>
+    this.handleAuth = this.handleAuth.bind(this);
+  }
 
-                {/* <a href="/signup">SignUp</a><br/><br/>
-                <a href="/login">Login</a> */}
-            </div>
-        );
-    }
+
+  handleAuth(data) {
+    this.props.history.push("/dashboard")
+    this.props.handleLogin(data)
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Welcome to my Job Application Tracker</h1><br />
+        <h1>status: {this.props.loggedInStatus}</h1>
+
+        {/* <h2>Signup</h2>
+        <Signup /> */}
+
+        <h2>Login</h2>
+        <Login handleAuth={this.handleAuth} />
+      </div>
+    );
+  }
 }
-
-export default Welcome;
