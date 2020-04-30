@@ -2,11 +2,19 @@ import React, { Component } from 'react'
 import Tracker from './Tracker'
 import { Item, Container } from 'semantic-ui-react'
 
+
 export default class Dashboard extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      trackers: []
+      trackers: [],
+      title: '',
+      company: '',
+      description: '',
+      search_date: '',
+      start_date: '',
+      app_sent: '',
+      user_id: undefined
     }
   }
 
@@ -17,9 +25,13 @@ export default class Dashboard extends Component {
       },
     })
       .then(r => r.json())
+      // .then(resp => console.log(resp.user))
       .then(response => {
-        console.log(response.user.trackers)
-        this.setState({ trackers: response.user.trackers })
+        console.log(response.user)
+        this.setState({
+          trackers: response.user.trackers,
+          user_id: response.user.id
+        })
       })
   }
 
@@ -27,10 +39,32 @@ export default class Dashboard extends Component {
     this.fetchTrackers()
   }
 
-  increment = () =>
-    this.setState((prevState) => ({
-      percent: prevState.percent >= 100 ? 0 : prevState.percent + 20,
-    }))
+  handleChange = (event) => {
+    const { name, value } = event.target
+    this.setState({
+      [name]: value
+    })
+  };
+
+  createNewTracker = (event) => {
+    event.preventDefault()
+    event.target.reset()
+
+    const { title, company, description, user_id } = this.state
+    const tracker = { title, company, description, user_id }
+
+    fetch("http://localhost:3000/tracker", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3000",
+        "Access-Control-Allow-Credentials": "true",
+        "Authorization": `JWT ${localStorage.getItem('token')}`
+      },
+      body: JSON.stringify({ tracker })
+    })
+  }
 
   render() {
     return (
@@ -39,6 +73,15 @@ export default class Dashboard extends Component {
         <h1>Status: {this.props.loggedInStatus}</h1>
         <h1>Username: {this.props.user.username}</h1>
 
+        <div>
+          <form onSubmit={this.createNewTracker}>
+            <input type="text" name="title" placeholder="title" onChange={this.handleChange} />
+            <input type="text" name="company" placeholder="company" onChange={this.handleChange} />
+            <input type="text" name="description" placeholder="description" onChange={this.handleChange} />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+
         <Container>
           <Item.Group divided>
             {this.state.trackers.map(tracker =>
@@ -46,6 +89,7 @@ export default class Dashboard extends Component {
             )}
           </Item.Group>
         </Container>
+
       </div>
     )
   }

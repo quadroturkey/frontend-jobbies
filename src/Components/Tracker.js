@@ -18,10 +18,6 @@ const Tracker = (props) => (
     <Divider vertical />
 
 
-
-
-
-
   </Segment>
 )
 
