@@ -11,11 +11,9 @@ export default class Dashboard extends Component {
       title: '',
       company: '',
       description: '',
-      search_date: '',
-      start_date: '',
-      app_sent: '',
       user_id: undefined
     }
+    
   }
 
   fetchTrackers() {
@@ -27,7 +25,6 @@ export default class Dashboard extends Component {
       .then(r => r.json())
       // .then(resp => console.log(resp.user))
       .then(response => {
-        console.log(response.user)
         this.setState({
           trackers: response.user.trackers,
           user_id: response.user.id
@@ -66,6 +63,12 @@ export default class Dashboard extends Component {
     })
   }
 
+  handleExpand = (tracker) => {
+    console.log('clicked')
+    this.props.handleTracker(tracker)
+    this.props.history.push("/expandedView")
+  }
+
   render() {
     return (
       <div>
@@ -85,7 +88,7 @@ export default class Dashboard extends Component {
         <Container>
           <Item.Group divided>
             {this.state.trackers.map(tracker =>
-              <Tracker tracker={tracker} key={tracker.id} />
+              <Tracker tracker={tracker} key={tracker.id}  handleExpand={this.handleExpand} />
             )}
           </Item.Group>
         </Container>
