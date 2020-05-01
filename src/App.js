@@ -5,13 +5,16 @@ import Welcome from './Components/Welcome'
 // import SignUp from './Components/Signup'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Dashboard from './Components/Dashboard';
+import ExpandedView from './Components/ExpandedView';
+
 
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
       loggedInStatus: "NOT_LOGGED_IN",
-      user: {}
+      user: {},
+      currentTracker: []
     }
   }
 
@@ -20,7 +23,12 @@ export default class App extends Component {
       loggedInStatus: "LOGGED_IN",
       user: data.user
     })
-    console.log(this.state.user)
+  }
+
+  handleTracker = tracker => {
+    this.setState({
+      currentTracker: tracker
+    })
   }
 
   render() {
@@ -47,6 +55,20 @@ export default class App extends Component {
                 <Dashboard {...props}
                   loggedInStatus={this.state.loggedInStatus}
                   user={this.state.user}
+                  handleTracker={this.handleTracker}
+                  
+                />
+              )}
+            />
+
+            <Route
+              exact
+              path={"/expandedView"}
+              render={props => (
+                <ExpandedView {...props}
+                currentTracker={this.state.currentTracker}
+                  // loggedInStatus={this.state.loggedInStatus}
+                  // user={this.state.user}
                 />
               )}
             />
