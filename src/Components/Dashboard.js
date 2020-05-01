@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Tracker from './Tracker'
 import { Item, Container } from 'semantic-ui-react'
 
-
 export default class Dashboard extends Component {
   constructor(props) {
     super(props)
@@ -13,7 +12,6 @@ export default class Dashboard extends Component {
       description: '',
       user_id: undefined
     }
-    
   }
 
   fetchTrackers() {
@@ -23,7 +21,6 @@ export default class Dashboard extends Component {
       },
     })
       .then(r => r.json())
-      // .then(resp => console.log(resp.user))
       .then(response => {
         this.setState({
           trackers: response.user.trackers,

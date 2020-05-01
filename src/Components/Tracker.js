@@ -1,6 +1,6 @@
 import React from 'react'
 // import ProgressBar from './ProgressBar'
-import { Item, Segment, Divider, Grid } from 'semantic-ui-react'
+import { Item, Segment, Divider, Grid, Button } from 'semantic-ui-react'
 
 const Tracker = props => (
   <Segment>
@@ -19,13 +19,13 @@ const Tracker = props => (
 
       </Grid.Column>
 
-      <Divider vertical />
 
       <Grid.Column>
-        <button onClick={() => props.handleExpand(props.tracker)} >Expand</button>
+        <Button onClick={() => props.handleExpand(props.tracker)} >Expand</Button>
       </Grid.Column>
 
     </Grid>
+      <Divider vertical />
   </Segment>
 )
 
