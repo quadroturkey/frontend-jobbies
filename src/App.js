@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Welcome from './Components/Welcome'
-// import Login from './Components/Login';
-// import SignUp from './Components/Signup'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Dashboard from './Components/Dashboard';
 import ExpandedView from './Components/ExpandedView';
-
 
 export default class App extends Component {
   constructor() {
@@ -56,7 +53,6 @@ export default class App extends Component {
                   loggedInStatus={this.state.loggedInStatus}
                   user={this.state.user}
                   handleTracker={this.handleTracker}
-                  
                 />
               )}
             />
@@ -66,9 +62,7 @@ export default class App extends Component {
               path={"/expandedView"}
               render={props => (
                 <ExpandedView {...props}
-                currentTracker={this.state.currentTracker}
-                  // loggedInStatus={this.state.loggedInStatus}
-                  // user={this.state.user}
+                  currentTracker={this.state.currentTracker}
                 />
               )}
             />

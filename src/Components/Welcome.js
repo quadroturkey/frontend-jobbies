@@ -9,7 +9,6 @@ export default class Welcome extends Component {
     this.handleAuth = this.handleAuth.bind(this);
   }
 
-
   handleAuth(data) {
     this.props.history.push("/dashboard")
     this.props.handleLogin(data)
