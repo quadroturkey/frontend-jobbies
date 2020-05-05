@@ -29,8 +29,6 @@ class Tracker extends Component {
       let diffMs = currentDateUpdated - followdateUpdated
       let diffDays = diffMs / (60*60*24*1000) % 365
 
-      console.log(diffDays)
-
       if (diffDays >= 14) {
         style = 'week2'
       }
@@ -38,8 +36,6 @@ class Tracker extends Component {
         style = 'week4'
       }
     }
-
-
     this.setState({ style })
   }
 
