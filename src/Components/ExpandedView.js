@@ -69,27 +69,7 @@ class ExpandedView extends Component {
     return (
       <div>
         <button onClick={this.deleteTracker}>delete</button>
-
         <Container>
-          {/* <Form onSubmit={() => console.log(this.state)}>
-            <Form.Field>
-              <label>title</label>
-              <input placeholder={this.state.title} onChange={this.handleChange} />
-            </Form.Field>
-            <Form.Field>
-              <label>company</label>
-              <input placeholder={this.state.company} onChange={this.handleChange} />
-            </Form.Field>
-            <Form.Field>
-              <label>description</label>
-              <input placeholder={this.state.description} onChange={this.handleChange} />
-            </Form.Field>
-            <Form.Field>
-              <label>Application sent</label>
-              <Calendar onChange={this.handleChange}/>
-            </Form.Field>
-            <Button type='confirm edit'>Submit</Button>
-          </Form> */}
           <form onSubmit={this.updateTracker}>
             <input type="text" name="title" placeholder={this.state.title} onChange={this.handleChange} />
             <input type="text" name="company" placeholder={this.state.company} onChange={this.handleChange} />
@@ -102,8 +82,6 @@ class ExpandedView extends Component {
                 <option value={true}>Offer Received</option>
               </select>
             </label>
-
-
             <button type="submit">Submit</button>
           </form>
         </Container>
