@@ -35,7 +35,7 @@ export default class Dashboard extends Component {
   componentDidMount() {
     console.log('mounted')
     this.fetchTrackers()
-    console.log('fetched')
+    // this.fetchTrackers()
   }
 
   handleChange = (event) => {

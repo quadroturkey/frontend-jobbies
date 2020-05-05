@@ -1,11 +1,24 @@
+.offer {
+  outline: 3px dashed rgb(23, 172, 0);
+  margin-bottom: 20px;
+}
+
+.week4 {
+  outline: 3px dashed crimson;
+  margin-bottom: 20px;
+}
+
+.week2 {
+  outline: 3px dashed yellow;
+  margin-bottom: 20px;
+}
+
+.missing {
+  outline: 3px dashed rgb(157, 10, 220);
+  margin-bottom: 20px;
+}
+
 .good {
   outline: 3px dashed deepskyblue;
-}
-
-.bad {
-  outline: 3px crimson;
-}
-
-.offer {
-  outline: 3px  springgreen;
+  margin-bottom: 20px;
 }
