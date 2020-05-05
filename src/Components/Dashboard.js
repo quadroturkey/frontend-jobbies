@@ -35,9 +35,7 @@ export default class Dashboard extends Component {
   componentDidMount() {
     console.log('mounted')
     this.fetchTrackers()
-    console.log('fetch once')
-    this.fetchTrackers()
-    console.log('fetch twice')
+    console.log('fetched')
   }
 
   handleChange = (event) => {
@@ -72,7 +70,6 @@ export default class Dashboard extends Component {
   }
 
   handleExpand = (tracker) => {
-    console.log('clicked')
     this.props.handleTracker(tracker)
     this.props.history.push("/expandedView")
   }

@@ -1,0 +1,11 @@
+.good {
+  outline: 3px dashed deepskyblue;
+}
+
+.bad {
+  outline: 3px crimson;
+}
+
+.offer {
+  outline: 3px  springgreen;
+}
