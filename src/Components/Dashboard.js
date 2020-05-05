@@ -10,6 +10,9 @@ export default class Dashboard extends Component {
       title: '',
       company: '',
       description: '',
+      application_date: undefined,
+      follow_up_date: undefined,
+      offer_received: undefined,
       user_id: undefined
     }
   }
@@ -30,7 +33,11 @@ export default class Dashboard extends Component {
   }
 
   componentDidMount() {
+    console.log('mounted')
     this.fetchTrackers()
+    console.log('fetch once')
+    this.fetchTrackers()
+    console.log('fetch twice')
   }
 
   handleChange = (event) => {
@@ -58,6 +65,10 @@ export default class Dashboard extends Component {
       },
       body: JSON.stringify({ tracker })
     })
+      .then(r => r.json())
+      .then(resp => {
+        this.fetchTrackers()
+      })
   }
 
   handleExpand = (tracker) => {
@@ -85,7 +96,7 @@ export default class Dashboard extends Component {
         <Container>
           <Item.Group divided>
             {this.state.trackers.map(tracker =>
-              <Tracker tracker={tracker} key={tracker.id}  handleExpand={this.handleExpand} />
+              <Tracker tracker={tracker} key={tracker.id} handleExpand={this.handleExpand} />
             )}
           </Item.Group>
         </Container>
