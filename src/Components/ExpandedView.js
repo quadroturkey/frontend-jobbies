@@ -38,8 +38,8 @@ class ExpandedView extends Component {
         "Authorization": `JWT ${localStorage.getItem('token')}`
       }
     })
-      .then(data => console.log(data))
-      .then(this.props.history.push("/dashboard"))
+      .then(r => r.json())
+      .then(() => this.props.history.push("/dashboard"))
   }
 
   updateTracker = (event) => {
@@ -59,8 +59,7 @@ class ExpandedView extends Component {
       },
       body: JSON.stringify({ tracker })
     })
-      .then(data => console.log(data))
-      .then(this.props.history.push("/dashboard"))
+      .then(() => this.props.history.push("/dashboard"))
   }
 
   render() {

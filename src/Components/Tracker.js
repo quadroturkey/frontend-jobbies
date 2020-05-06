@@ -20,7 +20,7 @@ class Tracker extends Component {
     if (this.props.tracker.offer_received === true) {
       style = 'offer'
       progressPercent = 100
-      barLabel = 'Offer Reviced'
+      barLabel = 'Offer Received'
       color = 'green'
     }
     if (this.props.tracker.application_date === null || this.props.tracker.follow_up_date === null) {
