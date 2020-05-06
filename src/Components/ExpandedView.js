@@ -68,20 +68,28 @@ class ExpandedView extends Component {
       <div>
         <button onClick={this.deleteTracker}>delete</button>
         <Container>
-          <form className='expandedForm' onSubmit={this.updateTracker}>
-            <label for='title'>title</label>
-            <input type="text" name="title" placeholder={this.state.title} onChange={this.handleChange} />
+          <form onSubmit={this.updateTracker}>
+            <label name='title' >Title</label>
+            <input type="text" name="title" placeholder={this.state.title} onChange={this.handleChange} /><br />
 
-            <input type="text" name="company" placeholder={this.state.company} onChange={this.handleChange} />
-            <input type="text" name="description" placeholder={this.state.description} onChange={this.handleChange} />
-            <input type="date" name="application_date" placeholder={this.state.application_date} onChange={this.handleChange} />
-            <input type="date" name="follow_up_date" placeholder={this.state.follow_up_date} onChange={this.handleChange} />
+            <label name='company' >Company</label>
+            <input type="text" name="company" placeholder={this.state.company} onChange={this.handleChange} /><br />
+
+            <label name='description' >Description</label>
+            <input type="text" name="description" placeholder={this.state.description} onChange={this.handleChange} /><br />
+
+            <label name='application_date' >Application Date</label>
+            <input type="date" name="application_date" placeholder={this.state.application_date} onChange={this.handleChange} /><br />
+
+            <label name='follow_up_date' >Date of Last Contact</label>
+            <input type="date" name="follow_up_date" placeholder={this.state.follow_up_date} onChange={this.handleChange} /><br />
+
             <label>
               <select value={this.state.offer_received} name="offer_received" onChange={this.handleChange}>
                 <option value={false}>No Offer</option>
                 <option value={true}>Offer Received</option>
               </select>
-            </label>
+            </label><br />
             <button type="submit">Submit</button>
           </form>
         </Container>

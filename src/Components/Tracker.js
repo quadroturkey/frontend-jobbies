@@ -37,7 +37,7 @@ class Tracker extends Component {
       let currentDateUpdated = new Date(currentDate.replace(/-/g, '/'));
 
       let diffMs = currentDateUpdated - followdateUpdated
-      let diffDays = diffMs / (60*60*24*1000) % 365
+      let diffDays = diffMs / (60 * 60 * 24 * 1000) % 365
 
       if (diffDays >= 14) {
         style = 'week2'
@@ -52,7 +52,7 @@ class Tracker extends Component {
         color = 'red'
       }
     }
-    
+
     this.setState({ style, progressPercent, barLabel, color })
   }
 
@@ -72,19 +72,14 @@ class Tracker extends Component {
                   <Item.Header as='a' ><h3>Title: {this.props.tracker.title}</h3></Item.Header>
                   <Item.Meta>Company: {this.props.tracker.company}</Item.Meta>
                   <Item.Description>Description: {this.props.tracker.description}</Item.Description>
+                  <Item.Header>Application Sent: {this.props.tracker.application_date}</Item.Header>
+                  <Item.Meta>Follow up Date: {this.props.tracker.follow_up_date}</Item.Meta>
                 </Item.Content>
               </Item>
             </Grid.Column>
 
             <Grid.Column>
-              <Item>
-                <Item.Content>
-                <Progress percent={this.state.progressPercent} color={this.state.color} >{this.state.barLabel}</Progress>
-                  {/* <Item.Header>Application Sent: {this.props.tracker.application_date}</Item.Header>
-                  <Item.Meta>Follow up Date: {this.props.tracker.follow_up_date}</Item.Meta>
-                  <Item.Description>Offer Received? {this.props.tracker.offer_received ? "YES" : "NO"}</Item.Description> */}
-                </Item.Content>
-              </Item>
+                  <Progress className='bar' percent={this.state.progressPercent} color={this.state.color} size='large'>{this.state.barLabel}</Progress>
             </Grid.Column>
 
           </Grid>
