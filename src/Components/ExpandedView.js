@@ -31,9 +31,7 @@ class ExpandedView extends Component {
   }
 
   deleteTracker = () => {
-    console.log('where are we? ======')
     const id = this.state.id
-    console.log(id, 'tracker id')
     fetch(`http://localhost:3000/tracker/${id}`, {
       method: 'DELETE',
       headers: {
@@ -70,8 +68,10 @@ class ExpandedView extends Component {
       <div>
         <button onClick={this.deleteTracker}>delete</button>
         <Container>
-          <form onSubmit={this.updateTracker}>
+          <form className='expandedForm' onSubmit={this.updateTracker}>
+            <label for='title'>title</label>
             <input type="text" name="title" placeholder={this.state.title} onChange={this.handleChange} />
+
             <input type="text" name="company" placeholder={this.state.company} onChange={this.handleChange} />
             <input type="text" name="description" placeholder={this.state.description} onChange={this.handleChange} />
             <input type="date" name="application_date" placeholder={this.state.application_date} onChange={this.handleChange} />
