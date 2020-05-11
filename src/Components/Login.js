@@ -13,7 +13,7 @@ class login extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target
-
+    
     this.setState({
       [name]: value
     })
@@ -24,7 +24,6 @@ class login extends Component {
     event.target.reset()
 
     const { username, password } = this.state
-
     const user = { username, password }
 
     fetch("http://localhost:3000/login", {
