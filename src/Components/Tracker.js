@@ -52,7 +52,6 @@ class Tracker extends Component {
         color = 'red'
       }
     }
-
     this.setState({ style, progressPercent, barLabel, color })
   }
 
@@ -71,7 +70,7 @@ class Tracker extends Component {
                 <Item.Content>
                   <Item.Header as='a' ><h3>Title: {this.props.tracker.title}</h3></Item.Header>
                   <Item.Meta>Company: {this.props.tracker.company}</Item.Meta>
-                  <Item.Description>Description: {this.props.tracker.description}</Item.Description>
+                  <Item.Description >Description: {this.props.tracker.description}</Item.Description>
                   <Item.Header>Application Sent: {this.props.tracker.application_date}</Item.Header>
                   <Item.Meta>Follow up Date: {this.props.tracker.follow_up_date}</Item.Meta>
                 </Item.Content>
@@ -79,7 +78,7 @@ class Tracker extends Component {
             </Grid.Column>
 
             <Grid.Column>
-                  <Progress className='bar' percent={this.state.progressPercent} color={this.state.color} size='large'>{this.state.barLabel}</Progress>
+              <Progress percent={this.state.progressPercent} color={this.state.color} size='large'>{this.state.barLabel}</Progress>
             </Grid.Column>
 
           </Grid>

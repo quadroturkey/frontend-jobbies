@@ -28,3 +28,11 @@
   background-color: #f2f2f2;
   padding: 20px;
 }
+
+.description {
+  display: block;
+  width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
