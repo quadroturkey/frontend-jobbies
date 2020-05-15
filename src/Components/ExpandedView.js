@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Container } from 'semantic-ui-react'
-// import Calendar from './Calendar'
+const backend = `https://peaceful-wildwood-78792.herokuapp.com/`
 
 class ExpandedView extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class ExpandedView extends Component {
 
   deleteTracker = () => {
     const id = this.state.id
-    fetch(`http://localhost:3000/tracker/${id}`, {
+    fetch(`${backend}/tracker/${id}`, {
       method: 'DELETE',
       headers: {
         "Authorization": `JWT ${localStorage.getItem('token')}`
@@ -50,7 +50,7 @@ class ExpandedView extends Component {
     const tracker = { title, company, description, user_id, application_date, follow_up_date, offer_received }
 
     const id = this.state.id
-    fetch(`http://localhost:3000/tracker/${id}`, {
+    fetch(`${backend}/${id}`, {
       method: 'PATCH',
       headers: {
         "Authorization": `JWT ${localStorage.getItem('token')}`,

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Tracker from './Tracker'
 import { Item, Container } from 'semantic-ui-react'
+const backend = `https://peaceful-wildwood-78792.herokuapp.com/`
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ export default class Dashboard extends Component {
   }
 
   fetchTrackers() {
-    fetch(`http://localhost:3000/profile`, {
+    fetch(`${backend}/profile`, {
       headers: {
         'Authorization': `JWT ${localStorage.getItem('token')}`,
       },
@@ -50,7 +51,7 @@ export default class Dashboard extends Component {
     const { title, company, description, user_id } = this.state
     const tracker = { title, company, description, user_id }
 
-    fetch("http://localhost:3000/tracker", {
+    fetch("${backend}/tracker", {
       method: "POST",
       headers: {
         "Accept": "application/json",
@@ -62,7 +63,7 @@ export default class Dashboard extends Component {
       body: JSON.stringify({ tracker })
     })
       .then(r => r.json())
-      .then(resp => {
+      .then(() => {
         this.fetchTrackers()
       })
   }
