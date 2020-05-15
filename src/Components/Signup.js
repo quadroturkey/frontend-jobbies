@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from "react-router-dom";
+const backend = `https://peaceful-wildwood-78792.herokuapp.com/`
 
 class Signup extends Component {
   constructor() {
@@ -27,7 +28,7 @@ class Signup extends Component {
     const { username, password } = this.state
     const user = { username, password }
 
-    fetch("http://localhost:3000/users", {
+    fetch(`${backend}/users`, {
       method: "POST",
       headers: {
         "Accept": "application/json",

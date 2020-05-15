@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+const backend = `https://peaceful-wildwood-78792.herokuapp.com/`
 
 class login extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class login extends Component {
     const { username, password } = this.state
     const user = { username, password }
 
-    fetch("http://localhost:3000/login", {
+    fetch(`${backend}/login`, {
       method: "POST",
       headers: {
         "Accept": "application/json",
