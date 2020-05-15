@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-const backend = `https://peaceful-wildwood-78792.herokuapp.com/`
+const backend = `https://peaceful-wildwood-78792.herokuapp.com`
 
 class login extends Component {
   constructor(props) {

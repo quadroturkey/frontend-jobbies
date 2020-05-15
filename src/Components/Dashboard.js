@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Tracker from './Tracker'
 import { Item, Container } from 'semantic-ui-react'
-const backend = `https://peaceful-wildwood-78792.herokuapp.com/`
+const backend = `https://peaceful-wildwood-78792.herokuapp.com`
 
 export default class Dashboard extends Component {
   constructor(props) {

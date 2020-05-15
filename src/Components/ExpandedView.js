@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Container } from 'semantic-ui-react'
-const backend = `https://peaceful-wildwood-78792.herokuapp.com/`
+const backend = `https://peaceful-wildwood-78792.herokuapp.com`
 
 class ExpandedView extends Component {
   constructor(props) {
