@@ -55,7 +55,7 @@ export default class Dashboard extends Component {
     const { title, company, description, user_id, application_date, follow_up_date } = this.state
     const tracker = { title, company, description, user_id, application_date, follow_up_date }
 
-    fetch("${backend}/tracker", {
+    fetch(`${backend}/tracker`, {
       method: "POST",
       headers: {
         "Accept": "application/json",
