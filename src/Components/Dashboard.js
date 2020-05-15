@@ -23,7 +23,7 @@ export default class Dashboard extends Component {
   }
 
   fetchTrackers() {
-    fetch(`${backend}/profile`, {
+    fetch(backend + `/profile`, {
       headers: {
         'Authorization': `JWT ${localStorage.getItem('token')}`,
       },

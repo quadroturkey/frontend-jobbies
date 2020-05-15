@@ -32,7 +32,7 @@ class ExpandedView extends Component {
 
   deleteTracker = () => {
     const id = this.state.id
-    fetch(`${backend}/tracker/${id}`, {
+    fetch(backend + `/tracker/${id}`, {
       method: 'DELETE',
       headers: {
         "Authorization": `JWT ${localStorage.getItem('token')}`
@@ -50,7 +50,7 @@ class ExpandedView extends Component {
     const tracker = { title, company, description, user_id, application_date, follow_up_date, offer_received }
 
     const id = this.state.id
-    fetch(`${backend}/${id}`, {
+    fetch(backend + `/${id}`, {
       method: 'PATCH',
       headers: {
         "Authorization": `JWT ${localStorage.getItem('token')}`,
