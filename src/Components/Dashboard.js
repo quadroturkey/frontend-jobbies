@@ -11,11 +11,15 @@ export default class Dashboard extends Component {
       title: '',
       company: '',
       description: '',
-      application_date: undefined,
-      follow_up_date: undefined,
+      application_date: this.currentDate(),
+      follow_up_date: this.currentDate(),
       offer_received: undefined,
       user_id: undefined
     }
+  }
+
+  currentDate = () => {
+    return new Date().toISOString().slice(0, 10)
   }
 
   fetchTrackers() {
@@ -48,8 +52,8 @@ export default class Dashboard extends Component {
     event.preventDefault()
     event.target.reset()
 
-    const { title, company, description, user_id } = this.state
-    const tracker = { title, company, description, user_id }
+    const { title, company, description, user_id, application_date, follow_up_date } = this.state
+    const tracker = { title, company, description, user_id, application_date, follow_up_date }
 
     fetch("${backend}/tracker", {
       method: "POST",
@@ -63,9 +67,7 @@ export default class Dashboard extends Component {
       body: JSON.stringify({ tracker })
     })
       .then(r => r.json())
-      .then(() => {
-        this.fetchTrackers()
-      })
+      .then(() => { this.fetchTrackers() })
   }
 
   handleExpand = (tracker) => {
