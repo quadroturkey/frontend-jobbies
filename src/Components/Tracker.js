@@ -68,10 +68,10 @@ class Tracker extends Component {
             <Grid.Column>
               <Item onClick={() => this.props.handleExpand(this.props.tracker)} >
                 <Item.Content>
-                  <Item.Header as='a' ><h3>Title: {this.props.tracker.title}</h3></Item.Header>
+                  <Item.Meta><h4>Title: {this.props.tracker.title}</h4></Item.Meta>
                   <Item.Meta>Company: {this.props.tracker.company}</Item.Meta>
-                  <Item.Description >Description: {this.props.tracker.description}</Item.Description>
-                  <Item.Header>Application Sent: {this.props.tracker.application_date}</Item.Header>
+                  <Item.Meta>Description: {this.props.tracker.description}</Item.Meta>
+                  <Item.Meta>Application Sent: {this.props.tracker.application_date}</Item.Meta>
                   <Item.Meta>Follow up Date: {this.props.tracker.follow_up_date}</Item.Meta>
                 </Item.Content>
               </Item>

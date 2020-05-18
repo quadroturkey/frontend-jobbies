@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import '../styleSheets/login.css'
+
 const backend = `https://peaceful-wildwood-78792.herokuapp.com`
 
 class login extends Component {
@@ -45,23 +47,14 @@ class login extends Component {
       })
   }
 
-  greeting = () => {
-    if (this.state.loggedIn) {
-      return <h3>Hello {this.state.currentUser}</h3>
-    } else {
-      return <h3>Please Log In</h3>
-    }
-  }
-
   render() {
     return (
       <div>
         <form onSubmit={this.login}>
-          <input type="text" name="username" placeholder="Username" onChange={this.handleChange} />
-          <input type="text" name="password" placeholder="Password" onChange={this.handleChange} />
+          <input type="text" name="username" placeholder="Username" onChange={this.handleChange} /><br/>
+          <input type="password" name="password" placeholder="Password" onChange={this.handleChange} /><br/>
           <button type="submit">Submit</button>
         </form>
-        {this.greeting()}
       </div>
     );
   }

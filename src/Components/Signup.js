@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from "react-router-dom";
 const backend = `https://peaceful-wildwood-78792.herokuapp.com`
 
 class Signup extends Component {
@@ -51,13 +50,11 @@ class Signup extends Component {
   render() {
     return (
       <div>
-        {this.state.created ? <Redirect to="/login" /> : <div>
-          <form onSubmit={this.createUser}>
-            <input type="text" name="username" placeholder="Username" onChange={this.handleChange} />
-            <input type="text" name="password" placeholder="Password" onChange={this.handleChange} />
-            <button type="submit">Submit</button>
-          </form>
-        </div>}
+        <form onSubmit={this.createUser}>
+          <input type="text" name="username" placeholder="Username" onChange={this.handleChange} /><br/>
+          <input type="password" name="password" placeholder="Password" onChange={this.handleChange} /><br/>
+          <button type="submit">Submit</button>
+        </form>
       </div>
     );
   }

@@ -79,13 +79,14 @@ export default class Dashboard extends Component {
     return (
       <div>
 
-        <h1>Username: {this.props.user.username}</h1>
+        {/* <h1>Username: {this.props.user.username}</h1> */}
 
         <div>
+          <h3>Make a new Tracker</h3>
           <form onSubmit={this.createNewTracker}>
-            <input type="text" name="title" placeholder="title" onChange={this.handleChange} />
-            <input type="text" name="company" placeholder="company" onChange={this.handleChange} />
-            <input type="text" name="description" placeholder="description" onChange={this.handleChange} />
+            <input type="text" name="title" placeholder="title" onChange={this.handleChange} /><br/>
+            <input type="text" name="company" placeholder="company" onChange={this.handleChange} /><br/>
+            <input type="text" name="description" placeholder="description" onChange={this.handleChange} /><br/>
             <button type="submit">Submit</button>
           </form>
         </div>
